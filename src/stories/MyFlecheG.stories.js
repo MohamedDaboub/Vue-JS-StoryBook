@@ -1,8 +1,8 @@
-import MyFleche from '../components/elements/MyFlecheD.vue';
+import MyFlecheG from '../components/elements/MyFlecheG.vue';
 
 export default {
-  title: 'Elements/MyFleche',
-  component: MyFleche,
+  title: 'Elements/MyFlecheG',
+  component: MyFlecheG,
   argTypes: {
     back:{
         control:'select',
@@ -15,12 +15,12 @@ export const Icon = {
   render: (args) => {
     return {
       components: {
-        MyFleche,
+        MyFlecheG,
       },
       setup(){
         return {args}
       },
-      template: `<MyFleche v-bind="args"/>`
+      template: `<MyFlecheG v-bind="args"/>`
     }
   },
   args: {
