@@ -1,8 +1,8 @@
 <script setup>
 import { computed } from 'vue'
-import IconflecheDVue from "../icons/IconFlecheD.vue";
+import IconflecheGVue from "../icons/IconFlecheG.vue";
 const props = defineProps({
-  back: String,   
+  back: String,
 })
 
 const className = computed(() => {
@@ -14,7 +14,7 @@ const className = computed(() => {
 </script>
 <template>
     <div class="fleche" :class="className">
-    <IconflecheDVue />
+    <IconflecheGVue />
     </div>
 </template>
 
