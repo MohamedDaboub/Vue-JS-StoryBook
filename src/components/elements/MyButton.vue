@@ -7,9 +7,6 @@ const props = defineProps({
   variant: String
 })
 
-/* J'ai corrigé cette partie après le cours avec une gestion des classes beaucoup plus simple. 
-J'avais oublié qu'on pouvait mettre des objets dans le className */
-
 const className = computed(() => {
   return{
   ' -rounded': props.variant === 'rounded',
@@ -19,7 +16,7 @@ const className = computed(() => {
 </script>
 <template>
   <a v-if="href" :href="href" class="button" :class="className"><slot>{{ content }}</slot></a>
-  <button v-else :class="className"><slot></slot></button>
+  <button v-else :class="className"><slot>{{ content }}</slot></button>
 </template>
 
 <style lang="scss" scoped>

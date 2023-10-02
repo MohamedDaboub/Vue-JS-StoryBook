@@ -18,6 +18,7 @@ export default{
             control:'select',
             options:['default','rounded']
         },
+        
     },
 }
 export const PrimaryButton ={
