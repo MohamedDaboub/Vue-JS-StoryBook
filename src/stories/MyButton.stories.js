@@ -56,15 +56,7 @@ export const SecondaryButton ={
     }
 };
 export const SmallPrimaryButton ={
-    render: (args) => {
-        return{
-            components: {MyButton},
-            setup() {
-                return {args};
-            },
-            template: '<MyButton v-bind="args"></MyButton>',
-        }
-    },
+    ...PrimaryButton,
     args: {
         size: 'small',
         variant: 'default',
