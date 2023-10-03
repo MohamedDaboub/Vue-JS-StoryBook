@@ -194,6 +194,33 @@ export const IconPolygon ={
     Shadow:false
   }
 };
+export const IconCamion ={
+  ...Icon_community,
+  args: {
+    name:"IconCamion",
+    variant: 'Orage Claire',
+    size:'Big',
+    Shadow:false
+  }
+};
+export const IconEat ={
+  ...Icon_community,
+  args: {
+    name:"IconEat",
+    variant: 'Orage Claire',
+    size:'Big',
+    Shadow:false
+  }
+};
+export const IconEat2 ={
+  ...Icon_community,
+  args: {
+    name:"IconEat2",
+    variant: 'Orage Claire',
+    size:'Big',
+    Shadow:false
+  }
+};
 export const IconDefault ={
   ...Icon_community,
   args: {

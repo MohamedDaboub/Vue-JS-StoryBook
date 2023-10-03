@@ -1,22 +1,26 @@
 <script setup>
 import { computed } from 'vue'
+import MyIcon from './MyIcon.vue'
 const props = defineProps({
   content: String,
   href: String,
   size: String,
-  variant: String
+  variant: String,
+  hasIcon: Boolean
 })
 
 const className = computed(() => {
   return{
   ' -rounded': props.variant === 'rounded',
-  ' -small': props.size === 'small'
+  ' -small': props.size === 'small',
+  "-Icon": props.hasIcon === true
+
   }
 })
 </script>
 <template>
-  <a v-if="href" :href="href" class="button" :class="className"><slot>{{ content }}</slot></a>
-  <button v-else :class="className"><slot>{{ content }}</slot></button>
+  <a v-if="href" :href="href" class="button" :class="className"><slot>{{ content }}</slot><MyIcon name="IconChevronRight" size="Regular" variant="White" v-if="hasIcon"/></a>
+  <button v-else :class="className"><slot>{{ content }}</slot><MyIcon name="IconChevronRight" size="Regular" variant="White" v-if="hasIcon"/></button>
 </template>
 
 <style lang="scss" scoped>
@@ -46,6 +50,13 @@ const className = computed(() => {
     font-size: $small-font-size;
     padding: rem(14) rem(29);
     font-weight: 400;
+  }
+  &.-Icon{
+    display: flex;
+    align-items: center;
+    gap: rem(27);
+    padding: rem(8) rem(8);
+    width: fit-content;
   }
 }
 </style>

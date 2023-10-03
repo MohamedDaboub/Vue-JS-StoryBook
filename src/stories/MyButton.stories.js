@@ -18,6 +18,9 @@ export default{
             control:'select',
             options:['default','rounded']
         },
+        hasIcon:{
+            control:'boolean',
+        },
         
     },
 }
@@ -36,6 +39,7 @@ export const PrimaryButton ={
         variant: 'default',
         href: 'about',
         content: 'Primary',
+        hasIcon: true,
     }
 };
 export const SecondaryButton ={
