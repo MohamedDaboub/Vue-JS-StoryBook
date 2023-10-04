@@ -13,7 +13,7 @@ export default {
         let offsetTop = container.value.offsetTop
         let elementHeight = container.value.offsetHeight
 
-        let result = ((scrollBottom - offsetTop) / elementHeight) * 100
+        let result = (scrollBottom - offsetTop) / elementHeight * 100
         percent.value = Math.round(result)
       }
     }

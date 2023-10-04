@@ -30,69 +30,69 @@ const props = defineProps({
 })
 const className = computed(() => {
   return{
-  '-Orange': props.variant === 'Orange',
-  '-black': props.variant === 'black',
-  '-Orage-Claire': props.variant === 'Orage Claire',
+    '-Orange': props.variant === 'Orange',
+    '-black': props.variant === 'black',
+    '-Orage-Claire': props.variant === 'Orage Claire',
     '-White': props.variant === 'White',
-  '-Small': props.size === 'Small',
-  '-Regular': props.size === 'Regular',
-  '-Big': props.size === 'Big',
-  '-shadow': props.Shadow === true,
+    '-Small': props.size === 'Small',
+    '-Regular': props.size === 'Regular',
+    '-Big': props.size === 'Big',
+    '-shadow': props.Shadow === true,
   }
 })
 const getIcon = computed(()=>{
-    switch(props.name){
-        case 'community':
-            return IconCommunityVue
-        case 'Documentation':
-            return IconDocumentationVue
-        case 'Support':
-            return IconSupportVue
-        case 'Tooling':
-            return IconToolingVue
-        case 'IconFlecheD':
-            return IconFlecheD
-        case 'IconFlecheG':
-            return IconFlecheG
-        case 'IconInstagram':
-            return IconInstagram
-        case 'IconTwitter':
-            return IconTwitter
-        case 'Iconlinkedin':
-            return Iconlinkedin
-        case 'IconFacebook':
-            return IconFacebook  
-        case 'IconChevronRight':
-            return IconChevronRight 
-        case 'IconSearch':
-            return IconSearch   
-        case 'IconTime':
-            return IconTime  
-        case 'IconLocation':
-            return IconLocation
-        case 'IconPhone':
-            return IconPhone
-        case 'IconShopBag':
-            return IconShopBag
-        case 'IconStar':
-            return IconStar
-        case 'IconPolygon':
-            return IconPolygon
-        case 'IconCamion':
-            return IconCamion
-        case 'IconEat':
-            return IconEat
-        case 'IconEat2':
-            return IconEat2
-        default:
-            return IconEcosystemVue
-    }
+  switch(props.name){
+  case 'community':
+    return IconCommunityVue
+  case 'Documentation':
+    return IconDocumentationVue
+  case 'Support':
+    return IconSupportVue
+  case 'Tooling':
+    return IconToolingVue
+  case 'IconFlecheD':
+    return IconFlecheD
+  case 'IconFlecheG':
+    return IconFlecheG
+  case 'IconInstagram':
+    return IconInstagram
+  case 'IconTwitter':
+    return IconTwitter
+  case 'Iconlinkedin':
+    return Iconlinkedin
+  case 'IconFacebook':
+    return IconFacebook  
+  case 'IconChevronRight':
+    return IconChevronRight 
+  case 'IconSearch':
+    return IconSearch   
+  case 'IconTime':
+    return IconTime  
+  case 'IconLocation':
+    return IconLocation
+  case 'IconPhone':
+    return IconPhone
+  case 'IconShopBag':
+    return IconShopBag
+  case 'IconStar':
+    return IconStar
+  case 'IconPolygon':
+    return IconPolygon
+  case 'IconCamion':
+    return IconCamion
+  case 'IconEat':
+    return IconEat
+  case 'IconEat2':
+    return IconEat2
+  default:
+    return IconEcosystemVue
+  }
 })
 </script>
 <template>
- <i class="fleche" :class="className">
+  <i class="fleche" :class="className">
     <component :is="getIcon" />
- </i>
+  </i>
 </template>
 <style lang="scss" scoped>
 

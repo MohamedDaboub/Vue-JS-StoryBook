@@ -13,15 +13,15 @@ const props = defineProps({
 <template>
   <div class="card">
     <div>
-        <MyIcon  :name="Icon" variant="Orage Claire" size="Big"/>
+      <MyIcon  :name="Icon" variant="Orage Claire" size="Big"/>
     </div>
     <div class="card__content">
-        <div>
-            <MyTitle :content="title" title="h4"/>
-        </div>
-        <div>
-            <MyParagraph :content="description"></MyParagraph>
-        </div>
+      <div>
+        <MyTitle :content="title" title="h4"/>
+      </div>
+      <div>
+        <MyParagraph :content="description"></MyParagraph>
+      </div>
     </div>
 
   </div>
