@@ -5,19 +5,19 @@ export default {
   component: MyCard,
   argTypes: {
     title:{
-        control:'text',
+      control:'text',
     },
     description:{
-        control:'text',
+      control:'text',
     },   
     ImageSrc:{
-        control:'text',
+      control:'text',
     },
     ImageAlt:{
-        control:'text',
+      control:'text',
     },
     buttonLabel:{
-        control:'text',
+      control:'text',
     },
   }
 }

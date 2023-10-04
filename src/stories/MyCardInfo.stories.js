@@ -5,15 +5,15 @@ export default {
   component: MyCardInfo,
   argTypes: {
     Icon:{
-        control:'select',
-        options:['IconCamion','IconEat','IconEat2']
+      control:'select',
+      options:['IconCamion','IconEat','IconEat2']
     },
     title:{
       control:'text',
-  },
-  description:{
+    },
+    description:{
       control:'text',
-  },   
+    },   
 
   }
 }

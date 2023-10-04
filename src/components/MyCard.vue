@@ -7,24 +7,23 @@ const props = defineProps({
   ImageSrc: String,
   ImageAlt: String,
 });
-
 </script>
 
 <template>
   <div class="card">
     <div class="card__image">
-        <img  :src='ImageSrc' :alt="ImageAlt" />
+      <img  :src='ImageSrc' :alt="ImageAlt" />
     </div>
     <div class="card__content">
-        <div class="card__title">
-            <h1>{{title}}</h1>
-        </div>
-        <div class="card__description">
-            <p>{{description}}</p>
-        </div>
-        <div class="card__button">
-            <MyButtonVue2Vue size="small" variant="rounded">{{buttonLabel}}</MyButtonVue2Vue>
-        </div>
+      <div class="card__title">
+        <h1>{{title}}</h1>
+      </div>
+      <div class="card__description">
+        <p>{{description}}</p>
+      </div>
+      <div class="card__button">
+        <MyButtonVue2Vue size="small" variant="rounded">{{buttonLabel}}</MyButtonVue2Vue>
+      </div>
     </div>
   </div>
 </template>

@@ -11,9 +11,9 @@ const props = defineProps({
 
 const className = computed(() => {
   return{
-  ' -rounded': props.variant === 'rounded',
-  ' -small': props.size === 'small',
-  "-Icon": props.hasIcon === true
+    ' -rounded': props.variant === 'rounded',
+    ' -small': props.size === 'small',
+    "-Icon": props.hasIcon === true
 
   }
 })

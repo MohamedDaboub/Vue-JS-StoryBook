@@ -6,8 +6,8 @@ defineProps({
 </script>
 
 <template>
-    <p class="p2" v-if="paragraphe_Size === 'p2'">{{ content }}</p>
-    <p class="p1" v-else>{{ content }}</p>
+  <p class="p2" v-if="paragraphe_Size === 'p2'">{{ content }}</p>
+  <p class="p1" v-else>{{ content }}</p>
 </template>
 
 <style lang="scss" scoped>
