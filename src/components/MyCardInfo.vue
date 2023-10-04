@@ -5,6 +5,7 @@ import MyParagraph from './elements/MyParagraph.vue'
 const props = defineProps({
   title: String,
   description: String,
+  Icon: String,
 });
 
 </script>
@@ -12,7 +13,7 @@ const props = defineProps({
 <template>
   <div class="card">
     <div>
-        <MyIcon name="IconEat2" variant="Orage Claire" size="Big"/>
+        <MyIcon  :name="Icon" variant="Orage Claire" size="Big"/>
     </div>
     <div class="card__content">
         <div>

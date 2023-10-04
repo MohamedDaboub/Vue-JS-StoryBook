@@ -7,7 +7,7 @@ export default {
   }
 }
 
-export const Icon = {
+export const Cards = {
   render: (args) => {
     return {
       components: {

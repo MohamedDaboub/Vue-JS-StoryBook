@@ -4,6 +4,10 @@ export default {
   title: 'Elements/MyCardInfo',
   component: MyCardInfo,
   argTypes: {
+    Icon:{
+        control:'select',
+        options:['IconCamion','IconEat','IconEat2']
+    },
     title:{
       control:'text',
   },
@@ -27,6 +31,7 @@ export const CardInfo = {
     }
   },
   args: {
+    Icon:'IconEat',
     title: 'Healthy Food',
     description: 'But I must explain to you how all this mistaken idea of denouncing pleasur and prasising pain was bron.',
 

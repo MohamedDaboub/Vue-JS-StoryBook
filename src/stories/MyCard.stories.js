@@ -22,7 +22,7 @@ export default {
   }
 }
 
-export const Icon = {
+export const Card = {
   render: (args) => {
     return {
       components: {
