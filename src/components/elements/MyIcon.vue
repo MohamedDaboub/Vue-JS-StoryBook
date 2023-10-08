@@ -99,7 +99,7 @@ const getIcon = computed(()=>{
 .fleche {
   align-items: center;
     border-radius: 100%;
-    background: none;
+    background: $white;
     fill: $black;
     display: inline-flex;
     height: rem(50);
