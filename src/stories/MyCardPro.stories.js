@@ -1,8 +1,8 @@
-import MyCardBuy from '../components/MyCardBuy.vue';
+import MyCardPro from '../components/MyCardPro.vue';
 
 export default {
-  title: 'Elements/MyCardBuy',
-  component: MyCardBuy,
+  title: 'Elements/MyCardPro',
+  component: MyCardPro,
   argTypes: {
     title:{
       control:'text',
@@ -13,7 +13,7 @@ export default {
     ImageAlt:{
       control:'text',
     },
-    buttonLabel:{
+    Name:{
       control:'text',
     },
     Prix: {
@@ -23,15 +23,6 @@ export default {
         type: 'text',  
       },
     },
-    NoteStar:{
-      control: {
-        type: 'number',
-        min: 0,  
-        max: 5,     
-        step: 0.25,   
-      },
-    },
-
   }
 }
 
@@ -39,20 +30,19 @@ export const CardInfo = {
   render: (args) => {
     return {
       components: {
-        MyCardBuy,
+        MyCardPro,
       },
       setup(){
         return {args}
       },
-      template: `<MyCardBuy v-bind="args"/>`
+      template: `<MyCardPro v-bind="args"/>`
     }
   },
   args: {
-    title: 'Green Beans',
+    title: 'Burger',
     ImageSrc: 'https://picsum.photos/450/300',
     ImageAlt: 'ImageAlt',
-    buttonLabel: 'Add To Cart',
-    Prix: '$15.00',
-    NoteStar: '4.5',
+    Prix: '$5.15',
+    Name: 'Mushroom Sauce',
   }
 }
