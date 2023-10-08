@@ -1,5 +1,4 @@
 <script setup>
-import MyButtonVue2Vue from "./elements/MyButtonVue2.vue";
 import MyIcon from './elements/MyIcon.vue'
 import MyTitle from './elements/MyTitle.vue'
 import MyParagraph from './elements/MyParagraph.vue'

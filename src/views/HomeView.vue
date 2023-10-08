@@ -2,7 +2,6 @@
 import MyBackgroundScroll from '../components/MyBackgroundScroll.vue'
 import MyButton from '@/components/elements/MyButton.vue'
 import DefaultLayout from '@/components/layouts/DefaultLayout.vue'
-import MyFleche from '../components/elements/MyFlecheD.vue';
 </script>
 
 <template>
@@ -23,7 +22,6 @@ import MyFleche from '../components/elements/MyFlecheD.vue';
           <li><a href="#">Aside link 1</a></li>
           <li><a href="#">Aside link 2</a></li>
           <li><a href="#">Aside link 3</a></li>
-          <MyFleche/>
         </ul>
         
       </nav>
