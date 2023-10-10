@@ -5,30 +5,36 @@ import MyBackgroundScroll from '../components/MyBackgroundScroll.vue'
 import MyButton from '@/components/elements/MyButton.vue'
 import DefaultLayout from '@/components/layouts/DefaultLayout.vue'
 
-//  recuperer toutles les recettes de  la cuisine 1 => /recipes/cuisine/:cuisineid
+// const BASE_URL = import.meta.env.VITE_API_URL;
 
+// client axios
+const client = axios.create({
+  baseURL: import.meta.env.VITE_API_URL,
+  timeout: 1000,
+  headers: {'X-Custom-Header': 'foobar'}
+});
+console.log('BASE_URL',client)
 
+// const getArticlesthen = ()=>{
+//   fetch(client+'/recipes')
+//     .then(response => response.json())
+//     .then((recipes) =>{
+//       fetch(client + '/recipes/cuisine/1')
+//         .then(response => response.json())
+//         .then(cuisineRecipies => console.log({recipes,cuisineRecipies}))
+//     })
+// }
 
-const getArticlesthen = ()=>{
-  fetch('http://localhost:3000/recipes')
-    .then(response => response.json())
-    .then((recipes) =>{
-      fetch('http://localhost:3000/recipes/cuisine/1')
-        .then(response => response.json())
-        .then(cuisineRecipies => console.log({recipes,cuisineRecipies}))
-    })
-}
-
-const getarticles = async()=>{
-  const response = await fetch('http://localhost:3000/recipes')
-  const cuisineRecipies = await fetch ('http://localhost:3000/recipes/cuisine/1')
-  return {recipes:response.json,cuisineRecipies: await cuisineRecipies.json}
-}
-onMounted(async()=>{
-  console.log('fetch + await', getarticles())
-  getArticlesthen()
+// const getarticles = async()=>{
+//   const response = await fetch('http://localhost:3000/recipes')
+//   const cuisineRecipies = await fetch ('http://localhost:3000/recipes/cuisine/1')
+//   return {recipes:response.json,cuisineRecipies: await cuisineRecipies.json}
+// }
+// onMounted(async()=>{
+//   console.log('fetch + await', getarticles())
+//   getArticlesthen()
   
-})
+// })
 // }
 // // .then 
 // fetch('http://localhost:3000/recipes',{
@@ -49,7 +55,16 @@ onMounted(async()=>{
 // console.log('test apres')
 
 // axios
+const getrecipes = async () =>{
+  const response = await client.get('/recipes')
+  const cuisineRecipies = await client.get('/recipes/cuisine/1')
+  return {recipes:response.data,cuisineRecipies: cuisineRecipies.data}
+}
+getrecipes()
 
+onMounted(async()=>{
+  console.log('fetch + await', getrecipes())
+})
 
 </script>
 
