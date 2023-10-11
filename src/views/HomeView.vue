@@ -1,9 +1,10 @@
 <script setup>
-import { onMounted } from 'vue'
+import { computed, onMounted,ref } from 'vue'
 import axios from 'axios'
 import MyBackgroundScroll from '../components/MyBackgroundScroll.vue'
 import MyButton from '@/components/elements/MyButton.vue'
 import DefaultLayout from '@/components/layouts/DefaultLayout.vue'
+import MyCard from '../components/MyCard.vue'
 
 // const BASE_URL = import.meta.env.VITE_API_URL;
 
@@ -15,56 +16,63 @@ const client = axios.create({
 });
 console.log('BASE_URL',client)
 
-// const getArticlesthen = ()=>{
-//   fetch(client+'/recipes')
-//     .then(response => response.json())
-//     .then((recipes) =>{
-//       fetch(client + '/recipes/cuisine/1')
-//         .then(response => response.json())
-//         .then(cuisineRecipies => console.log({recipes,cuisineRecipies}))
-//     })
-// }
-
-// const getarticles = async()=>{
-//   const response = await fetch('http://localhost:3000/recipes')
-//   const cuisineRecipies = await fetch ('http://localhost:3000/recipes/cuisine/1')
-//   return {recipes:response.json,cuisineRecipies: await cuisineRecipies.json}
-// }
-// onMounted(async()=>{
-//   console.log('fetch + await', getarticles())
-//   getArticlesthen()
-  
-// })
-// }
-// // .then 
-// fetch('http://localhost:3000/recipes',{
-//   method: 'GET'
-// }).then(response => {
-//   return response.json()
-// }).then(data => {
-//   console.log('liste des recete',data)
-// }).catch(err => {
-//   console.log(err)
-// })
-// console.log('test')
-// // async await
-// const response = await fetch('http://localhost:3000/recipes')
-// const data = await response.json()
-// console.log('liste des recete',data)
-
-// console.log('test apres')
-
 // axios
 const getrecipes = async () =>{
   const response = await client.get('/recipes')
-  const cuisineRecipies = await client.get('/recipes/cuisine/1')
-  return {recipes:response.data,cuisineRecipies: cuisineRecipies.data}
+  return response.data
 }
-getrecipes()
+
+const recipes = ref([])
+
+const recipeNames = computed(()=>{
+  // return recipes.value.map(recipes => recipes.recipe_name)
+  return recipes.value.map((item) =>  item.recipe_name)
+})
+
+
+const spaghettiRecipes = computed(()=>{
+  return recipes.value.filter(recipes => recipes.recipe_name.toLowerCase().includes('spaghetti'))
+
+})
+
+const hasgoalID1 = computed(()=>{
+  return recipes.value.some(recipes => recipes.goal_id === 1)
+})
+
+// utiliser 2 computed pour génér les listes de recettes
+
+const recipesInHero = 4
+
+// une computed pour afficher les 4 premières du tableau recipes .slice
+const heroRecipes = computed(()=>{
+  // index de 0 a 3 (4 exclus)
+  return recipes.value.slice(0,recipesInHero)
+})
+
+const gridpage = ref(1)
+// une computed pour afficher les autre .slice
+const gridRecipes = computed(()=>{
+  // index a partir du 4
+  const recipesByPage = 3
+  return recipes.value.slice(recipesInHero,recipesInHero + recipesByPage * gridpage.value)
+})
+
+const moreRecinesToShow = computed(()=>{
+  // return recipes.value.length > recipesInHero + gridRecipes.value.length
+  return gridRecipes.value.length < (recipes.value.length - recipesInHero)
+})
+
+const seeMoreRecipe = () =>{
+  gridpage.value++
+
+}
+
 
 onMounted(async()=>{
-  console.log('fetch + await', getrecipes())
+  recipes.value = await getrecipes()
 })
+
+
 
 </script>
 
@@ -90,6 +98,42 @@ onMounted(async()=>{
         
       </nav>
     </template>
+    {{ recipes }}
+    <!-- {{ recipeNames }}
+    {{ spaghettiRecipes }}
+    {{ hasgoalID1 }} -->
+    <ul>
+      <li>Spaghetti</li>
+      <li v-for="(recipe,index) in recipes" :key="index">
+        {{ recipe.recipe_name }}
+      </li>
+    </ul>
+    <ul>
+      <li v-for="(spaghettiRecipes,index) in recipes" :key="index">
+        {{ spaghettiRecipes.recipe_name.toLowerCase().includes('spaghetti') }}
+      </li>
+    </ul>
+    <p></p>
+    <ul>
+      <li v-for="(hasgoalID1,index) in recipes" :key="index">
+        {{hasgoalID1.goal_id === 1 }}
+      </li>
+    </ul>
+    <div>
+      <p>reccette de la grille</p>
+      <div v-for="(recipe,index) in heroRecipes" :key="index">
+        <MyCard :title="recipe.recipe_name" :description="recipe.recipe_description" :ImageSrc="recipe.image_url"/>
+      </div>
+    </div>
+ 
+    <div>
+      <p>reccette de la grille</p>
+      <div v-for="(recipe,index) in gridRecipes" :key="index">
+        <MyCard :title="recipe.recipe_name" :description="recipe.recipe_description" :ImageSrc="recipe.image_url"/>
+      </div>
+    </div>
+    <button v-if="moreRecinesToShow"  @click="seeMoreRecipe">voir plus de recettes</button>
+    <!-- <button @click="moreRecinesToShow">qqvoir plus de recettes</button> -->
 
     <MyBackgroundScroll />
 
