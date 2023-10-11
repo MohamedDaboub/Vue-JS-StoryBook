@@ -1,19 +1,20 @@
 <script setup>
 import { computed, onMounted,ref } from 'vue'
-import axios from 'axios'
+// import axios from 'axios'
 import MyBackgroundScroll from '../components/MyBackgroundScroll.vue'
 import MyButton from '@/components/elements/MyButton.vue'
 import DefaultLayout from '@/components/layouts/DefaultLayout.vue'
 import MyCard from '../components/MyCard.vue'
+import {client } from '@/utils/axios.js'
 
 // const BASE_URL = import.meta.env.VITE_API_URL;
 
 // client axios
-const client = axios.create({
-  baseURL: import.meta.env.VITE_API_URL,
-  timeout: 1000,
-  headers: {'X-Custom-Header': 'foobar'}
-});
+// const client = axios.create({
+//   baseURL: import.meta.env.VITE_API_URL,
+//   timeout: 1000,
+//   headers: {'X-Custom-Header': 'foobar'}
+// });
 console.log('BASE_URL',client)
 
 // axios
@@ -109,8 +110,10 @@ onMounted(async()=>{
       </li>
     </ul>
     <ul>
-      <li v-for="(spaghettiRecipes,index) in recipes" :key="index">
+      <li v-for="(spaghettiRecipes,index)  in recipes" :key="index">
+        
         {{ spaghettiRecipes.recipe_name.toLowerCase().includes('spaghetti') }}
+
       </li>
     </ul>
     <p></p>
@@ -122,14 +125,14 @@ onMounted(async()=>{
     <div>
       <p>reccette de la grille</p>
       <div v-for="(recipe,index) in heroRecipes" :key="index">
-        <MyCard :title="recipe.recipe_name" :description="recipe.recipe_description" :ImageSrc="recipe.image_url"/>
+        <MyCard :id="recipe.recipe_id"  :title="recipe.recipe_name" :description="recipe.recipe_description" :ImageSrc="recipe.image_url"/>
       </div>
     </div>
  
     <div>
       <p>reccette de la grille</p>
       <div v-for="(recipe,index) in gridRecipes" :key="index">
-        <MyCard :title="recipe.recipe_name" :description="recipe.recipe_description" :ImageSrc="recipe.image_url"/>
+        <MyCard :id="recipe.recipe_id" :title="recipe.recipe_name" :description="recipe.recipe_description" :ImageSrc="recipe.image_url"/>
       </div>
     </div>
     <button v-if="moreRecinesToShow"  @click="seeMoreRecipe">voir plus de recettes</button>

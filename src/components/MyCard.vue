@@ -1,12 +1,28 @@
 <script setup>
 import MyButtonVue2Vue from "./elements/MyButtonVue2.vue";
+// import { useRoute } from "vue-router";
+// import { onMounted,ref } from 'vue'
+// import {client } from '@/utils/axios.js'
+
+// const route = useRoute()
+// const recipe = ref({})
+
 const props = defineProps({
   title: String,
   description: String,
   buttonLabel: String,
   ImageSrc: String,
   ImageAlt: String,
+  id: Number,
 });
+// const getrecipes = async (id) =>{
+//   const response = await client.get(`/recipes/${id}`)
+//   return response.data
+// }
+
+// onMounted(async()=>{
+//   recipe.value = await getrecipes(route.params.id)
+// })
 </script>
 
 <template>
@@ -22,7 +38,9 @@ const props = defineProps({
         <p>{{description}}</p>
       </div>
       <div class="card__button">
-        <MyButtonVue2Vue size="small" variant="rounded">{{buttonLabel}}</MyButtonVue2Vue>
+        <router-link :to="`/recipes/${id}`">
+          <MyButtonVue2Vue size="small" variant="rounded">{{buttonLabel}}</MyButtonVue2Vue>
+        </router-link>
       </div>
     </div>
   </div>
