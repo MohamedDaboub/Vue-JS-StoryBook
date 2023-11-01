@@ -1,9 +1,28 @@
 <script setup>
-import Myheader from '@/components/layout/MyHeader.vue'
+import MyIcon from '@/components/elements/MyIcon.vue'
 </script>
 
 <template>
-  <Myheader/>
+  <header>
+    <div class="logo">
+      <img src="Public/img/logo.png" alt="Logo">
+    </div>
+    <nav class="menu">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Menu</a></li>
+        <li><a href="#">Service</a></li>
+        <li><a href="#">Shope</a></li>
+      </ul>
+    </nav>
+    <div class="right-side">
+      <div class="right-side--Search">
+        <MyIcon name="IconSearch"  ></MyIcon>
+        <input type="search" placeholder="Rechercher...">
+      </div>
+      <MyIcon class="right-side--border" name="IconShopBag" ></MyIcon>
+    </div>
+  </header>
 </template>
 
 <style lang="scss" scoped>
