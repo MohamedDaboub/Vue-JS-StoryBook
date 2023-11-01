@@ -1,12 +1,11 @@
 <script setup>
 import MyIcon from '../components/elements/MyIcon.vue'
-
-
 </script>
+
 <template>
   <header>
     <div class="logo">
-      <img src="../assets/Logo.png" alt="Logo">
+      <img src="Public/img/logo.png" alt="Logo">
     </div>
     <nav class="menu">
       <ul>
@@ -17,32 +16,25 @@ import MyIcon from '../components/elements/MyIcon.vue'
       </ul>
     </nav>
     <div class="right-side">
-      <input type="search" placeholder="Rechercher...">
-      <MyIcon name="IconShopBag"  ></MyIcon>
+      <div class="right-side--Search">
+        <MyIcon name="IconSearch"  ></MyIcon>
+        <input type="search" placeholder="Rechercher...">
+      </div>
+      <MyIcon class="right-side--border" name="IconShopBag" ></MyIcon>
     </div>
   </header>
 </template>
-
-<style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-}
-</style>
 
 <style lang="scss" scoped>
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 50px;
+  padding: rem(20) rem(50);
   background-color: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   .logo img {
-      height: 50px;
+      height: rem(50);
       width: auto;
   }
 .menu {
@@ -51,8 +43,7 @@ header {
         padding: 0;
         margin: 0;
         display: flex;
-        gap: 20px;
-
+        gap: rem(15);
         li {
             a {
                 text-decoration: none;
@@ -68,15 +59,24 @@ header {
 .right-side {
     display: flex;
     align-items: center;
-    gap: 10px;  
+    gap: rem(10);  
     border-radius: rem(10);
     box-shadow: 0px rem(2) rem(10) rgba(0, 0, 0, 0.20);
+    padding: rem(5);
     
     input[type="search"] {
-        padding: 5px 10px;
         border: none;
-        border-radius: 3px;
         outline: none;
+    }
+    &--Search{
+        background-color: white;
+        display: flex;
+        align-items: center;
+        border-radius: rem(15);
+    }
+    &--border{
+        border-left: 1px solid $gray;
+        border-radius: 0px 10px 10px 0px;
     }
     }
 }
